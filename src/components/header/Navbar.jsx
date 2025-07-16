@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function Navbar() {
   const [menuAbierto, setMenuAbierto] = useState(false);
@@ -8,15 +9,12 @@ export default function Navbar() {
   };
 
   return (
-    <header className="w-full flex flex-col md:flex-row items-center justify-around px-6 py-4 bg-white shadow-md">
-      {/* LOGO */}
+    <header className="w-full flex flex-col md:flex-row items-center justify-between px-6 py-4 bg-white shadow-md border-b border-gray-200 z-10 relative">
       <div className="w-full flex items-center justify-between md:w-auto">
         <div className="flex items-center gap-3">
           <img src="/1.home/KL.png" alt="Klean Logo" className="h-8" />
-          <span className="font-bold text-lg text-[#5F5FFF]"></span>
+          <span className="font-bold text-lg text-[#5F5FFF]">Klean</span>
         </div>
-
-        {/* MENU BURGUER */}
         <button
           onClick={toggleMenu}
           className="md:hidden p-2 text-gray-600 hover:text-[#5F5FFF] focus:outline-none"
@@ -37,25 +35,61 @@ export default function Navbar() {
         </button>
       </div>
 
-      {/* MENU */}
       <nav className="hidden md:flex gap-8 mt-4 md:mt-0 text-gray-600 font-medium">
-        {["Home", "Service", "Works", "News", "Contact"].map((item) => (
-          <a
-            key={item}
-            href="#"
-            className="flex items-center gap-2 hover:text-[#5F5FFF]"
-          >
-            {item}
-            <img
-              src="/1.home/angle-down.png"
-              alt="arrow"
-              className="w-2 h-2 mt-1"
-            />
-          </a>
-        ))}
+        <Link to="/" className="flex items-center gap-2 hover:text-[#5F5FFF]">
+          Home
+          <img
+            src="/1.home/angle-down.png"
+            alt="arrow"
+            className="w-2 h-2 mt-1"
+          />
+        </Link>
+        <Link
+          to="/service"
+          className="flex items-center gap-2 hover:text-[#5F5FFF]"
+        >
+          Service
+          <img
+            src="/1.home/angle-down.png"
+            alt="arrow"
+            className="w-2 h-2 mt-1"
+          />
+        </Link>
+        <Link
+          to="/works"
+          className="flex items-center gap-2 hover:text-[#5F5FFF]"
+        >
+          Works
+          <img
+            src="/1.home/angle-down.png"
+            alt="arrow"
+            className="w-2 h-2 mt-1"
+          />
+        </Link>
+        <Link
+          to="/news"
+          className="flex items-center gap-2 hover:text-[#5F5FFF]"
+        >
+          News
+          <img
+            src="/1.home/angle-down.png"
+            alt="arrow"
+            className="w-2 h-2 mt-1"
+          />
+        </Link>
+        <Link
+          to="/contact"
+          className="flex items-center gap-2 hover:text-[#5F5FFF]"
+        >
+          Contact
+          <img
+            src="/1.home/angle-down.png"
+            alt="arrow"
+            className="w-2 h-2 mt-1"
+          />
+        </Link>
       </nav>
 
-      {/* Botones */}
       <div className="hidden md:flex items-center gap-6 mt-4 md:mt-0">
         <button className="text-gray-600 hover:text-[#5F5FFF] font-medium">
           Log In
@@ -65,19 +99,39 @@ export default function Navbar() {
         </button>
       </div>
 
-      {/* Menú hamburguesa desplegado (pantallas pequeñas) */}
       {menuAbierto && (
-        <div className="w-full flex flex-col mt-4 gap-3 md:hidden">
-          {["Home", "Service", "Works", "News", "Contact"].map((item) => (
-            <a
-              key={item}
-              href="#"
-              className="text-gray-600 hover:text-[#5F5FFF] px-4 py-2 border-b border-gray-200"
-            >
-              {item}
-            </a>
-          ))}
-          <div className="flex flex-col items-start gap-2 px-4 mt-2">
+        <div className="w-full flex flex-col mt-4 gap-3 border shadow-2xl md:hidden">
+          <Link
+            to="/"
+            className="text-gray-600 hover:text-[#5F5FFF] px-4 py-2 border-b border-gray-200"
+          >
+            Home
+          </Link>
+          <Link
+            to="/service"
+            className="text-gray-600 hover:text-[#5F5FFF] px-4 py-2 border-b border-gray-200"
+          >
+            Service
+          </Link>
+          <Link
+            to="/works"
+            className="text-gray-600 hover:text-[#5F5FFF] px-4 py-2 border-b border-gray-200"
+          >
+            Works
+          </Link>
+          <Link
+            to="/news"
+            className="text-gray-600 hover:text-[#5F5FFF] px-4 py-2 border-b border-gray-200"
+          >
+            News
+          </Link>
+          <Link
+            to="/contact"
+            className="text-gray-600 hover:text-[#5F5FFF] px-4 py-2 border-b border-gray-200"
+          >
+            Contact
+          </Link>
+          <div className="flex flex-col items-center gap-2 px-4 mt-2 mb-3">
             <button className="text-gray-600 hover:text-[#5F5FFF] font-medium">
               Log In
             </button>

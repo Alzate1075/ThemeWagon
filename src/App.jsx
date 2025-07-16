@@ -5,7 +5,7 @@ import Contact from "./components/body/Contact";
 import Details from "./components/body/Details";
 import Features from "./components/body/Features";
 import Projects from "./components/body/Projects";
-import Services from "./components/body/Services";
+import Service from "./components/body/Service";
 import Team from "./components/body/Team";
 import Footer from "./components/footer/Footer";
 
@@ -13,7 +13,7 @@ import { Routes, Route } from "react-router-dom";
 
 export default function App() {
   return (
-    <div>
+    <div className="screen-full">
       <Navbar />
 
       <Routes>
@@ -22,10 +22,11 @@ export default function App() {
         <Route path="/details" element={<Details />} />
         <Route path="/features" element={<Features />} />
         <Route path="/projects" element={<Projects />} />
-        <Route path="/services" element={<Services />} />
+        <Route path="/service" element={<Service />} />
         <Route path="/team" element={<Team />} />
         <Route path="/footer" element={<Footer />} />
       </Routes>
+      <Service />
     </div>
   );
 }
