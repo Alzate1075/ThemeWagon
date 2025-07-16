@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 
 export default function Navbar() {
   const [menuAbierto, setMenuAbierto] = useState(false);
+  const menuRef = useRef(null);
 
   const toggleMenu = () => {
     setMenuAbierto(!menuAbierto);
@@ -11,16 +12,33 @@ export default function Navbar() {
   const rutas = [
     { nombre: "Home", ruta: "/" },
     { nombre: "Service", ruta: "/service" },
-    { nombre: "Works", ruta: "/works" },
+    { nombre: "Our team", ruta: "/team" },
     { nombre: "News", ruta: "/news" },
     { nombre: "Contact", ruta: "/contact" },
   ];
+
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (menuRef.current && !menuRef.current.contains(e.target)) {
+        setMenuAbierto(false);
+      }
+    };
+
+    if (menuAbierto) {
+      document.addEventListener("mousedown", handleClickOutside);
+    } else {
+      document.removeEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [menuAbierto]);
 
   return (
     <header className="w-full bg-white shadow-md border-b border-gray-200 z-10 relative px-6 py-4">
       <div className="flex items-center justify-between lg:justify-around lg:hidden">
         <img src="/1.home/KL.png" alt="Klean Logo" className="h-8" />
-
         <button
           onClick={toggleMenu}
           className="p-2 text-gray-600 hover:text-[#5F5FFF] focus:outline-none"
@@ -72,7 +90,10 @@ export default function Navbar() {
       </div>
 
       {menuAbierto && (
-        <div className="w-full flex flex-col mt-4 gap-3 border shadow-2xl lg:hidden font-semibold">
+        <div
+          ref={menuRef}
+          className="w-full flex flex-col mt-4 gap-3 border shadow-2xl lg:hidden font-semibold bg-white"
+        >
           {rutas.map((item) => (
             <Link
               key={item.nombre}
