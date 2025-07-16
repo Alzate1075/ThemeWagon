@@ -1,7 +1,7 @@
 import React from "react";
 
 export default function Service() {
-  const servicios = [
+  const serviciosCards = [
     {
       img: "/2.services/icon1.png",
       title: "Send Texts Instantly",
@@ -42,10 +42,10 @@ export default function Service() {
         />
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
-          {servicios.map((item, index) => (
+          {serviciosCards.map((item, index) => (
             <div
               key={index}
-              className="w-full h-[100%] bg-white p-6 rounded-xl shadow-lg hover:shadow-xl max-w-xs hover:scale-105 transform transition-transform duration-300"
+              className="w-full h-[100%] bg-white/70% backdrop-blur-md p-6 rounded-xl border border-gray-100 shadow-lg hover:shadow-xl max-w-xs hover:scale-105 transform transition-transform duration-300"
             >
               <img
                 src={item.img}

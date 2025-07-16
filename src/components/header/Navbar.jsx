@@ -13,7 +13,7 @@ export default function Navbar() {
     { nombre: "Home", ruta: "/" },
     { nombre: "Service", ruta: "/service" },
     { nombre: "Our team", ruta: "/team" },
-    { nombre: "News", ruta: "/news" },
+    { nombre: "Features", ruta: "/Features" },
     { nombre: "Contact", ruta: "/contact" },
   ];
 

@@ -1,7 +1,7 @@
 import React from "react";
 
 export default function Team() {
-  const teams = [
+  const teamsCards = [
     {
       img: "/6.team/image1.png",
       nombre: "John Adams",
@@ -35,7 +35,7 @@ export default function Team() {
       </p>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2 mb-12">
-        {teams.map((item, index) => (
+        {teamsCards.map((item, index) => (
           <div key={index} className="bg-white p-6 rounded-xl text-center">
             <img
               src={item.img}
