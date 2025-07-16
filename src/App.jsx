@@ -13,7 +13,7 @@ import { Routes, Route } from "react-router-dom";
 
 export default function App() {
   return (
-    <div className="screen-full">
+    <div className="bg-gray-50">
       <Navbar />
 
       <Routes>
