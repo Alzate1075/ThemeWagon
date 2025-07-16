@@ -26,7 +26,6 @@ export default function App() {
         <Route path="/team" element={<Team />} />
         <Route path="/footer" element={<Footer />} />
       </Routes>
-      <Service />
     </div>
   );
 }
