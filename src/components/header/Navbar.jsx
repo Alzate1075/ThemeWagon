@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 export default function Navbar() {
   const [menuAbierto, setMenuAbierto] = useState(false);
   const menuRef = useRef(null);
+  const buttonRef = useRef(null);
 
   const toggleMenu = () => {
     setMenuAbierto(!menuAbierto);
@@ -19,17 +20,18 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleClickOutside = (e) => {
-      if (menuRef.current && !menuRef.current.contains(e.target)) {
+      if (
+        menuAbierto &&
+        menuRef.current &&
+        !menuRef.current.contains(e.target) &&
+        buttonRef.current &&
+        !buttonRef.current.contains(e.target)
+      ) {
         setMenuAbierto(false);
       }
     };
 
-    if (menuAbierto) {
-      document.addEventListener("mousedown", handleClickOutside);
-    } else {
-      document.removeEventListener("mousedown", handleClickOutside);
-    }
-
+    document.addEventListener("mousedown", handleClickOutside);
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
@@ -40,6 +42,7 @@ export default function Navbar() {
       <div className="flex items-center justify-between lg:justify-around lg:hidden">
         <img src="/1.home/KL.png" alt="Klean Logo" className="h-8" />
         <button
+          ref={buttonRef}
           onClick={toggleMenu}
           className="p-2 text-gray-600 hover:text-[#5F5FFF] focus:outline-none"
         >

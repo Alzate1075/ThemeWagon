@@ -18,12 +18,12 @@ export default function App() {
 
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/details" element={<Details />} />
-        <Route path="/features" element={<Features />} />
-        <Route path="/projects" element={<Projects />} />
         <Route path="/service" element={<Service />} />
         <Route path="/team" element={<Team />} />
+        <Route path="/features" element={<Features />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/details" element={<Details />} />
+        <Route path="/projects" element={<Projects />} />
         <Route path="/footer" element={<Footer />} />
       </Routes>
     </div>

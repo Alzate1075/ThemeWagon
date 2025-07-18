@@ -40,7 +40,7 @@ export default function Team() {
             <img
               src={item.img}
               alt={item.nombre}
-              className="cursor-pointer w-full h-auto object-cover mb-5 hover:scale-105 transition-transform duration-300"
+              className="cursor-pointer w-50 h-auto object-cover mb-5 hover:scale-105 transition-transform duration-300"
             />
             <h3 className="text-lg font-semibold text-black">{item.nombre}</h3>
             <p className="text-sm text-gray-500">{item.cargo}</p>
